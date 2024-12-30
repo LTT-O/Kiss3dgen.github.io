@@ -48,40 +48,35 @@
             <h1 class="nerf_title_v2">Kiss3DGen:<br /> Repurposing Image Diffusion Models for 3D Asset Generation</h1>
             <div class="nerf_subheader_v2">
                 <div>
-                    <h1 class="nerf_affiliation_v2">Jiantao Lin</h1><sup> *1</sup>,&nbsp;&nbsp;
-		            <h1 class="nerf_affiliation_v2">Xin Yang</h1><sup> *1,2</sup>,&nbsp;&nbsp;
-                    <h1 class="nerf_affiliation_v2">Meixi Chen</h1><sup> *1</sup>,&nbsp;&nbsp;
+                    <h1 class="nerf_affiliation_v2">Jiantao Lin</h1><sup> 1</sup><strong>*</strong>,&nbsp;&nbsp;
+                    <h1 class="nerf_affiliation_v2">Xin Yang</h1><sup> 1,2</sup><strong>*</strong>,&nbsp;&nbsp;
+                    <h1 class="nerf_affiliation_v2">Meixi Chen</h1><sup> 1</sup><strong>*</strong>,&nbsp;&nbsp;
                     <h1 class="nerf_affiliation_v2">Yingjie Xu</h1><sup> 1</sup>,&nbsp;&nbsp;
                     <h1 class="nerf_affiliation_v2">Dongyu Yan</h1><sup> 1</sup>,&nbsp;&nbsp;
                     <h1 class="nerf_affiliation_v2">Leyi Wu</h1><sup> 1</sup>,&nbsp;&nbsp;
                     <h1 class="nerf_affiliation_v2">Xinli Xu</h1><sup> 1</sup>,&nbsp;&nbsp;
                     <h1 class="nerf_affiliation_v2">Lie XU</h1><sup> 3</sup>,&nbsp;&nbsp;
                     <h1 class="nerf_affiliation_v2">Shunsi Zhang</h1><sup> 3</sup>,&nbsp;&nbsp;
-                    <h1 class="nerf_affiliation_v2">Ying-Cong Chen</h1><sup> 1,2</sup>,&nbsp;&nbsp;
-
-                    <!-- <a href="https://aruichen.github.io/" target="_blank" class="nerf_authors_v2">Rui Chen<span
-                            class="text-span_nerf"></span></a><sup> 1</sup>,&nbsp;&nbsp;
-                    <a href="https://yixunliang.github.io/" target="_blank" class="nerf_authors_v2">Yixun Liang<span
-                        class="text-span_nerf"></span></a><sup> 2,3</sup>,&nbsp;&nbsp;
-                    <a href="https://xuelin-chen.github.io/" target="_blank" class="nerf_authors_v2">Xuelin Chen<span
-                            class="text-span_nerf"></span></a><sup> 4</sup>,&nbsp;&nbsp;
-                    <a href="https://ece.hkust.edu.hk/pingtan" target="_blank" class="nerf_authors_v2">Ping Tan<span
-                            class="text-span_nerf"></span></a><sup> 1,2</sup>,&nbsp;&nbsp;
-                    <a href="https://www.xxlong.site/" target="_blank" class="nerf_authors_v2">Xiaoxiao Long†<span
-                            class="text-span_nerf"></span></a><sup> 1,2</sup> -->
+                    <h1 class="nerf_affiliation_v2">Ying-Cong Chen</h1><sup> 1,2</sup><strong>†</strong>,&nbsp;&nbsp;
                 </div>
                 <div>
                     <h1 class="nerf_affiliation_v2"><sup>1 </sup>HKUST(GZ)</h1>,
                     <h1 class="nerf_affiliation_v2"><sup>2 </sup>HKUST</h1>,
                     <h1 class="nerf_affiliation_v2"><sup>3 </sup>Quwan</h1>
                 </div>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 10px; text-align: center;">
+                    <p style="margin: 0;">* Equal contribution</p>
+                    <p style="margin: 0;">† Corresponding author</p>
+                </div>
 
                 <div class="external-link">
                     <a class="btn" href="https://arxiv.org/pdf/2405.14979" role="button" target="_blank">
                         <i class="ai ai-arxiv"></i> Arxiv </a>
-                    <a class="btn" href="https://huggingface.co/spaces/wyysf/Kiss3DGen" role="button" target="_blank">
+                    <a class="btn" href="https://huggingface.co/spaces/LTT/Kiss3DGen" role="button" target="_blank">
                         <i class="fa-solid fa-chess-knight"></i> Demo (HF) </a> 
-                    <a class="btn" href="https://github.com/wyysf-98/Kiss3DGen" role="button" target="_blank" disabled>
+                    <a class="btn" href="" role="button" target="_blank">
+                        <i class="fa-solid fa-chess-knight"></i> Demo (Local) </a> 
+                    <a class="btn" href="https://github.com/LTT-O/Kiss3DGen" role="button" target="_blank" disabled>
                         <i class="fa-brands fa-github"></i> Code </a>
                 </div>
                 
@@ -108,7 +103,7 @@
             <h2 class="grey-heading_nerf" style="text-align: center;">Text-to-Mesh</h2>
             <div id="text-to-mesh-container"></div>
             <div style="text-align: center; margin-top: 20px;">
-                <button id="more-results-button" style="
+                <button id="more-results-button-text" style="
                 padding: 10px 20px; 
                 font-size: 16px; 
                 cursor: pointer; 
@@ -129,7 +124,7 @@
             .then(response => response.json())
             .then(data => {
                 const container = document.getElementById('text-to-mesh-container');
-                const moreButton = document.getElementById('more-results-button');
+                const moreButton = document.getElementById('more-results-button-text');
                 const maxRowsToShow = 2; // 默认显示的行数
                 const itemsPerRow = 2; // 每行显示的项目数
                 const maxItemsToShow = maxRowsToShow * itemsPerRow; // 默认显示的项目数量
@@ -203,7 +198,7 @@
     
             <!-- 按钮 -->
             <div style="text-align: center; margin-top: 20px;">
-                <button id="more-results-button" style="
+                <button id="more-results-button-img" style="
                     padding: 10px 20px; 
                     font-size: 16px; 
                     cursor: pointer; 
@@ -234,7 +229,7 @@
         ];
     
         const container = document.getElementById("img-to-mesh-container");
-        const moreButton = document.getElementById("more-results-button");
+        const moreButton = document.getElementById("more-results-button-img");
     
         const maxRowsToShow = 3; // 默认显示的行数
         const isShowingAll = { value: false }; // 当前显示状态，使用对象以便共享
@@ -292,41 +287,77 @@
     
 
 
-    <div class="white_section_nerf  w-container">
-        <h2 class="grey-heading_nerf">Normal Brush Results</h2>
-        <div class="grid-container-4">
+    <div class="white_section_nerf w-container">
+        <h2 class="grey-heading_nerf">Mesh Refinement Gallery</h2>
+        
+        <div class="grid-container-3">
+            <!-- 第一行（默认显示） -->
             <div>
-                <video class="video" id="44" loop playsinline autoPlay muted
-                src="assets/refined_mesh/44.mp4" onplay="resizeAndPlay(this)"></video>
-                <canvas class="videoMerge" id="44_merge"></canvas>
+                <video class="video" id="chicken" loop playsinline autoPlay muted
+                src="assets/refined_mesh/chicken.mp4" onplay="resizeAndPlay(this)"></video>
+                <canvas class="videoMerge" id="chicken_merge"></canvas>
             </div>
             <div>
-                <video class="video" id="16" loop playsinline autoPlay muted
-                src="assets/refined_mesh/16.mp4" onplay="resizeAndPlay(this)"></video>
-                <canvas class="videoMerge" id="16_merge"></canvas>
+                <video class="video" id="day_235_roadster_edit-2" loop playsinline autoPlay muted
+                src="assets/refined_mesh/day_235_roadster_edit-2.mp4" onplay="resizeAndPlay(this)"></video>
+                <canvas class="videoMerge" id="day_235_roadster_edit-2_merge"></canvas>
             </div>
             <div>
-                <video class="video" id="39" loop playsinline autoPlay muted
-                src="assets/refined_mesh/39.mp4" onplay="resizeAndPlay(this)"></video>
-                <canvas class="videoMerge" id="39_merge"></canvas>
+                <video class="video" id="coarse-man2" loop playsinline autoPlay muted
+                src="assets/refined_mesh/coarse-man2.mp4" onplay="resizeAndPlay(this)"></video>
+                <canvas class="videoMerge" id="coarse-man2_merge"></canvas>
             </div>
-            <div>
-                <video class="video" id="8" loop playsinline autoPlay muted
-                src="assets/refined_mesh/8.mp4" onplay="resizeAndPlay(this)"></video>
-                <canvas class="videoMerge" id="8_merge"></canvas>
+    
+            <!-- 隐藏内容（默认隐藏） -->
+            <div class="hidden">
+                <video class="video" id="orange-blue-girl-in-hood-kiss" loop playsinline autoPlay muted
+                src="assets/refined_mesh/orange-blue-girl-in-hood-kiss.mp4" onplay="resizeAndPlay(this)"></video>
+                <canvas class="videoMerge" id="orange-blue-girl-in-hood-kiss_merge"></canvas>
             </div>
-
-
+            <div class="hidden">
+                <video class="video" id="day_235_roadster_edit-1" loop playsinline autoPlay muted
+                src="assets/refined_mesh/day_235_roadster_edit-1.mp4" onplay="resizeAndPlay(this)"></video>
+                <canvas class="videoMerge" id="day_235_roadster_edit-1_merge"></canvas>
+            </div>
+            <div class="hidden">
+                <video class="video" id="coarse-man1" loop playsinline autoPlay muted
+                src="assets/refined_mesh/coarse-man1.mp4" onplay="resizeAndPlay(this)"></video>
+                <canvas class="videoMerge" id="coarse-man1_merge"></canvas>
+            </div>
+            <div class="hidden">
+                <video class="video" id="pink-yellow-girl-in-hood-kiss" loop playsinline autoPlay muted
+                src="assets/refined_mesh/pink-yellow-girl-in-hood-kiss.mp4" onplay="resizeAndPlay(this)"></video>
+                <canvas class="videoMerge" id="pink-yellow-girl-in-hood-kiss_merge"></canvas>
+            </div>
+            <div class="hidden">
+                <video class="video" id="stalin-1" loop playsinline autoPlay muted
+                src="assets/refined_mesh/stalin-1.mp4" onplay="resizeAndPlay(this)"></video>
+                <canvas class="videoMerge" id="stalin-1_merge"></canvas>
+            </div>
+            <div class="hidden">
+                <video class="video" id="stalin-2" loop playsinline autoPlay muted
+                src="assets/refined_mesh/stalin-2.mp4" onplay="resizeAndPlay(this)"></video>
+                <canvas class="videoMerge" id="stalin-2_merge"></canvas>
+            </div>
         </div>
-
-        <div class="grid-container-1">
-            <a class="mybtn" href="https://Kiss3DGen.github.io/normal-brush-gallery_0.html" role="button">
-            More Results </a>
+        
+        <!-- 按钮 -->
+        <div style="text-align: center; margin-top: 20px;">
+            <button id="more-results-button-refine" style="
+                padding: 10px 20px; 
+                font-size: 16px; 
+                cursor: pointer; 
+                background-color: #007BFF; 
+                color: white; 
+                border: none; 
+                border-radius: 5px; 
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+                transition: all 0.3s ease;">More Results</button>
         </div>
     </div>
 
 
-    <div class="white_section_nerf  w-container">
+    <!-- <div class="white_section_nerf  w-container">
         <h2 class="grey-heading_nerf">Method Overview</h2>
         <div class="grid-container-1">
             <img src="assets/images/overview.png">
@@ -337,8 +368,7 @@
                 key tools: an automatic global refinement and an interactive Magic Brush, which together enable efficient and controllable 3D modeling.
             </p>
         </div>
-    </div>
-
+    </div> -->
 
 
 
@@ -353,10 +383,27 @@ year      = {2024},
 }</code></pre>
 </div>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const moreButton = document.getElementById('more-results-button-refine');
+        const hiddenItems = document.querySelectorAll('.hidden');
 
+        moreButton.addEventListener('click', () => {
+            hiddenItems.forEach(item => {
+                item.classList.toggle('hidden');
+            });
+
+            if (moreButton.innerText === "More Results") {
+                moreButton.innerText = "Show Less";
+            } else {
+                moreButton.innerText = "More Results";
+            }
+        });
+    });
+</script>
 </body>
 <footer>
-    This project page is inspired by <a href="https://github.com/nerfies/nerfies.github.io">Nerfies.</a>, © Weiyu Li. All rights reserved.
+    This project page is inspired by <a href="https://craftsman3d.github.io/">CraftsMan3D.</a>, © Weiyu Li. All rights reserved.
 </footer>
 
 </html>
